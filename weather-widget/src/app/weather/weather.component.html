@@ -1,0 +1,17 @@
+<div class="weather-widget">
+  <h2>Weather Checker</h2>
+  <input
+  type="text"
+  [(ngModel)]="city"
+  placeholder="Enter city"
+  (keyup.enter)="getWeather()"
+/>
+<button (click)="getWeather()">Search</button>
+
+  <div *ngIf="weatherData">
+    <h3>{{ weatherData.name }}, {{ weatherData.sys.country }}</h3>
+    <p>Temperature: {{ weatherData.main.temp }} °C</p>
+    <p>Condition: {{ weatherData.weather[0].description }}</p>
+  </div>
+</div>
+
